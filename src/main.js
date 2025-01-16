@@ -37,7 +37,7 @@ const handlerSearch = event => {
 
   loader.style.display = 'inline-block';
 
-  fetchPhotosByQuery(question) //promise
+  fetchPhotosByQuery(question) // promise
     .then(data => {
       if (data.hits.length === 0) {
         iziToast.show({
@@ -53,10 +53,20 @@ const handlerSearch = event => {
       galleryModal.refresh();
       loader.style.display = 'none';
     })
-
     .catch(error => {
       console.log(error.message);
+      iziToast.error({
+        title: 'Error',
+        message: 'Something went wrong. Please try again later!',
+        position: 'topCenter',
+        backgroundColor: '#EF4040',
+        messageColor: '#FFFFFF',
+      });
     })
-    .finally(() => event.target.reset());
+    .finally(() => {
+      event.target.reset();
+      loader.style.display = 'none';
+    });
 };
+
 form.addEventListener('submit', handlerSearch);

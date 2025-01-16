@@ -21,12 +21,13 @@ body {
 }
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  flex-direction: column; /* Змінюємо напрямок на колонку */
+  align-items: center; /* Вирівнюємо по центру */
+  justify-content: flex-start;
   margin-top: 36px;
-  gap: 8px;
+  gap: 16px; /* Більший проміжок між елементами */
 }
+
 .form-search {
 }
 .input-form {
